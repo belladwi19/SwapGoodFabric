@@ -73,7 +73,7 @@
                                             <td>
                                                 <a href="{{ route('member.transactions.show', ['transaction' => $item->id]) }}"
                                                     class="badge badge-primary">Lihat Detail ></a>
-                                                <a href="{{ route('member.print.index')}}"
+                                                    <a href="{{ route('member.print.index', ['transaction' => $item->id]) }}"
                                                     class="badge badge-primary" target="_blank">Cetak</a>
                                             </td>
                                         </tr>
