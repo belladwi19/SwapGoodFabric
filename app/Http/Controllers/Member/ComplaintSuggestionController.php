@@ -60,4 +60,11 @@ class ComplaintSuggestionController extends Controller
         return redirect()->route('member.complaints.index')
             ->with('success', 'Saran/komplain berhasil dikirim!');
     }
+
+    public function delete($id)
+    {
+        $complaintSuggestion = ComplaintSuggestion::find($id);
+        $complaintSuggestion->delete();
+        return redirect()->route('member.complaints.index')->with('success', 'Komplain berhasil dihapus.');
+    }
 }
