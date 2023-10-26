@@ -28,5 +28,6 @@ class RegisterMemberRequest extends FormRequest
             'email'    => ['required', 'email', 'unique:users'],
             'password' => ['required', 'confirmed', 'min:8', 'different:name','regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/'],
         ];
+        
     }
 }
