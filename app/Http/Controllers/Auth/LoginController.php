@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -75,5 +77,38 @@ class LoginController extends Controller
 
         return redirect()->route('login.show')
             ->with('success', Lang::get('auth.logout_success'));
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+  
+  
+    public function handleGoogleCallback(Request $request)
+    {
+        try {
+            $user_google = Socialite::driver('google')->user();
+            $user = User::where('email', $user_google->getEmail())->first();
+
+            if ($user != null) {
+                Auth::login($user);
+                $request->session()->put('user', $user);
+                return redirect()->route('member.index'); 
+            } else {
+                User::create([
+                    'email' => $user_google->getEmail(),
+                    'name' => $user_google->getName(),
+                    'password' => 0,
+                ]);
+
+                $user = Auth::user();
+                $request->session()->put('user', $user);
+                return redirect()->route('member.index'); 
+            }
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+
     }
 }

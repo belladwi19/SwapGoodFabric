@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('landing');
 })->middleware('language');
 
+Route::get('auth/redirect', [LoginController::class, 'redirectToGoogle']);
+Route::get('auth/callback', [LoginController::class, 'handleGoogleCallback']);
+
+
 // Auth routes
 Route::group(['middleware' => 'language'], function () {
     Route::get('login', [LoginController::class, 'show'])->name('login.show')->middleware('islogin');
