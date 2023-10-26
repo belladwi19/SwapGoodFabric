@@ -66,6 +66,11 @@
                                 <i class="fab fa-google"></i> Login with Google
                             </a>
                         </div>
+                        <div class="justify-content-center align-items-center d-flex">
+                            <a href="" class="btn btn-facebook">
+                                <i class="fab fa-facebook"></i> Login with Facebook
+                            </a>
+                        </div>
                         <hr>
                         <div class="text-center">
                             <a href="{{ url('register') }}">@lang('auth.register_link')</a>
