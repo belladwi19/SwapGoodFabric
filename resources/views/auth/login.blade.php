@@ -62,7 +62,7 @@
                         </form>
 
                         <div class="justify-content-center align-items-center d-flex">
-                            <a href="" class="btn btn-google">
+                            <a href="{{ '/auth/redirect'}}" class="btn btn-google">
                                 <i class="fab fa-google"></i> Login with Google
                             </a>
                         </div>
