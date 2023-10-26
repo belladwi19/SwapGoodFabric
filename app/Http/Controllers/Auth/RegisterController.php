@@ -31,6 +31,17 @@ class RegisterController extends Controller
      */
     public function register(RegisterMemberRequest $request): RedirectResponse
     {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('register.show')
+                ->withErrors($validator)  
+                ->withInput(); 
+        }
+
         User::create($request->safe()->all());
 
         return redirect()->route('login.show')
