@@ -37,27 +37,27 @@
                             <label for="name">@lang('auth.name_label')</label>
                             <input type="text" class="form-control" id="name"
                                 name="name" placeholder="@lang('auth.name_placeholder')" value="{{old('name')}}"
-                                >
+                                required>
                             
                         </div>
                         <div class="form-group">
                             <label for="email">@lang('auth.email_label')</label>
                             <input type="email" class="form-control" id="email"
                                 name="email" placeholder="@lang('auth.email_placeholder')" value="{{old('email')}}"
-                                >
+                                required>
                             
                         </div>
                         <div class="form-group">
                             <label for="password">@lang('auth.password_label')</label>
                             <input type="password" class="form-control"
-                                id="password" name="password" placeholder="@lang('auth.password_placeholder')" >
+                                id="password" name="password" placeholder="@lang('auth.password_placeholder')" required>
                             
                         </div>
                         <div class="form-group">
                             <label for="password2">@lang('auth.confirm_password_label')</label>
                             <input type="password" class="form-control"
                                 id="password2" name="password_confirmation"
-                                placeholder="@lang('auth.confirm_password_placeholder')" >
+                                placeholder="@lang('auth.confirm_password_placeholder')" required>
                             
                         </div>
                         <button class="btn btn-primary btn-block" type="submit">@lang('auth.reg_title')</button>
