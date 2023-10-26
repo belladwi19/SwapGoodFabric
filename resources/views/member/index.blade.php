@@ -47,6 +47,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="my-3 text-center">Transaksi Terakhir</h3>
+                            <a href="" class="badge badge-primary" target="_blank">Cetak Semua Transaksi</a>
                         </div>
                         <div class="card-body">
                             <table class="table">
@@ -73,7 +74,7 @@
                                             <td>
                                                 <a href="{{ route('member.transactions.show', ['transaction' => $item->id]) }}"
                                                     class="badge badge-primary">Lihat Detail ></a>
-                                                    <a href="{{ route('member.print.index', ['transaction' => $item->id]) }}"
+                                                <a href="{{ route('member.print.index', ['transaction' => $item->id]) }}"
                                                     class="badge badge-primary" target="_blank">Cetak</a>
                                             </td>
                                         </tr>
