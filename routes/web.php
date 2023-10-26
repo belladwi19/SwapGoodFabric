@@ -32,7 +32,9 @@ Route::group(['middleware' => 'language'], function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('login.logout');
 
     Route::get('register', [RegisterController::class, 'show'])->name('register.show');
+    Route::post('register', [RegisterController::class, 'register'])->name('register.register');
     Route::get('register-admin', [RegisterController::class, 'registerAdminView'])->name('register.admin');
+    Route::post('register-admin', [RegisterController::class, 'registerAdmin'])->name('register.register_admin');
 });
 
 // User profile routes

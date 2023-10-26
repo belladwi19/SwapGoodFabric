@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">@lang('auth.password_label')</label>
-                            <input type="password" class=""
+                            <input type="password" class="form-control"
                                 id="password" name="password" placeholder="@lang('auth.password_placeholder')" >
                             
                         </div>

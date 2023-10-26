@@ -15,3 +15,4 @@ Route::get('/transactions', [TransactionController::class, 'index'])->name('tran
 Route::get('/transactions/{transaction}', [TransactionController::class, 'show'])->name('transactions.show');
 Route::get('/complaint-suggestions', [ComplaintSuggestionController::class, 'index'])->name('complaints.index');
 Route::post('/complaint-suggestions', [ComplaintSuggestionController::class, 'store'])->name('complaints.store');
+Route::get('/complaint-suggestions/delete', [ComplaintSuggestionController::class, 'delete'])->name('complaints.delete');
