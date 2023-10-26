@@ -16,7 +16,7 @@ Route::get('/transactions', [TransactionController::class, 'index'])->name('tran
 Route::get('/transactions/{transaction}', [TransactionController::class, 'show'])->name('transactions.show');
 Route::get('/complaint-suggestions', [ComplaintSuggestionController::class, 'index'])->name('complaints.index');
 Route::post('/complaint-suggestions', [ComplaintSuggestionController::class, 'store'])->name('complaints.store');
-Route::get('/complaint-suggestions/{id}/delete', [ComplaintSuggestionController::class, 'delete'])->name('complaints.delete');
+Route::delete('/complaint-suggestions/{id}', [ComplaintSuggestionController::class, 'delete'])->name('complaints.delete');
 Route::get('/print/{transaction}', [MemberTransactionPrintController::class, 'index'])->name('print.index');
 Route::get('/print-all-transactions', [MemberTransactionPrintController::class, 'printAllTransactions'])
     ->name('print.all');

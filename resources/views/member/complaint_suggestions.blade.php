@@ -1,17 +1,19 @@
 @extends('member.template.main')
 
 @section('main-content')
-    <!-- Content Header (Page header) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Saran atau Komplain</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -51,11 +53,10 @@
                                                 <option value="2">Komplain</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
+                                        <div class "form-group">
                                             <textarea class="form-control" id="form_sarankomplain" rows="4" name="body"></textarea>
                                         </div>
-                                        <button class="btn btn-primary badge-pill float-right w-25"
-                                            type="submit">Kirim</button>
+                                        <button class="btn btn-primary badge-pill float-right w-25" type="submit">Kirim</button>
                                     </form>
                                 </div>
                                 <div class="col-md-6">
@@ -122,7 +123,7 @@
                                                 </td>
                                             @endif
                                             <td>
-                                            <a href="{{ route('member.complaints.delete', ['id' => $complaintSuggestion->id]) }}" class="btn btn-danger">Hapus</a>
+                                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationModal" data-url="{{ route('member.complaints.delete', ['id' => $complaintSuggestion->id]) }}">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -132,7 +133,31 @@
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
+    </div>
+    
+    <!-- Modal Konfirmasi Penghapusan -->
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Konfirmasi Hapus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <form id="deleteForm" method="POST" action="">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
