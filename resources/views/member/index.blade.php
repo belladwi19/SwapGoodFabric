@@ -47,7 +47,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="my-3 text-center">Transaksi Terakhir</h3>
-                            <a href="" class="badge badge-primary" target="_blank">Cetak Semua Transaksi</a>
+                            <a href="{{ route('member.print.all') }}" class="badge badge-primary" target="_blank">Cetak Semua Transaksi</a>
                         </div>
                         <div class="card-body">
                             <table class="table">
